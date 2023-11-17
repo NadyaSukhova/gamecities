@@ -50,11 +50,16 @@ class TheGame extends React.Component {
       last_word = this.state.answers.slice(-1);
       first_letter = last_word[0].slice(-1);
     }
+    console.log(first_letter)
+    if (this.state.answers.length > 0 & "ьъы".includes(first_letter)) {
+      first_letter = last_word[0][last_word[0].length - 2];
+    }
+    console.log(first_letter)
     if (
       this.state.cities.includes(this.state.answer) &
       !this.state.answers.includes(this.state.answer) &
       (first_letter === "" ||
-        this.state.answer[0].toLowerCase() === first_letter.toLowerCase())
+        this.state.answer[0].toLowerCase() === first_letter)
     ) {
       this.state.answers.push(this.state.answer);
 
@@ -72,7 +77,7 @@ class TheGame extends React.Component {
 
       if (
         this.state.cities.filter(
-          (city) => city[0].toLowerCase() === last_letter
+          (city) => city[0].toLowerCase() === last_letter & !this.state.answers.includes(city)
         ).length === 0
       ) {
         window.location.href = `/win/?amount=${
@@ -84,7 +89,7 @@ class TheGame extends React.Component {
         setTimeout(() => {
           this.state.answers.push(
             this.state.cities.filter(
-              (city) => city[0].toLowerCase() === last_letter
+              (city) => city[0].toLowerCase() === last_letter & !this.state.answers.includes(city)
             )[0]
           );
           new_answers = `<div class="w-full mb-2 float-left ml-4">
@@ -98,10 +103,13 @@ class TheGame extends React.Component {
       }
       if (this.state.timeLeft > 5) {
         setTimeout(() => {
+          var new_letter=this.state.answers[answers_count]
+          .slice(-1);
+          if ("ьъы".includes(new_letter)) {
+            new_letter = this.state.answers[answers_count][this.state.answers[answers_count].length - 2];
+          }
           this.setState({
-            answer: `Знаете город на букву"${this.state.answers[answers_count]
-              .slice(-1)
-              .toUpperCase()}"?`,
+            answer: `Знаете город на букву"${new_letter.toUpperCase()}"?`,
           });
         }, 5000);
       }
@@ -188,7 +196,7 @@ class TheGame extends React.Component {
             </div>
           </Then>
           <Else>
-            <If condition={this.state.answers % 2 === 0}>
+            <If condition={this.state.answers.length % 2 === 0}>
               <Then>
                 <Navigate
                   to={`/fail/?amount=${
