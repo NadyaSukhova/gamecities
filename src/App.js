@@ -12,17 +12,17 @@ function App() {
   <BrowserRouter>
     <Routes>
       <Route
-        path={"/game"}
+        path={"/gamecities/game"}
         element={<TheGame/>}
       />
       <Route
-        path={"/welcome"}
+        path={"/gamecities/welcome"}
         element={<WelcomePage/>}
       />
       <Route path="*" element={<NoPage />} />
-      <Route path="/fail" search='?amount=amount&city=city&time=time' element={<FailPage />} />
-      <Route path="/win" search='?amount=amount&city=city&time=time' element={<WinPage />} />
-      <Route path="/" element={<Navigate replace to="/welcome" /> }/>
+      <Route path="/gamecities/fail" search='?amount=amount&city=city&time=time' element={<FailPage />} />
+      <Route path="/gamecities/win" search='?amount=amount&city=city&time=time' element={<WinPage />} />
+      <Route path="/gamecities" element={<Navigate replace to="/welcome" /> }/>
     </Routes>
   </BrowserRouter>
   </div>
