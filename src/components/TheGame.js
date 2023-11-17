@@ -72,7 +72,7 @@ class TheGame extends React.Component {
 
       if (
         this.state.cities.filter(
-          (city) => city[0].toLowerCase() === last_letter
+          (city) => city[0].toLowerCase() === last_letter & !this.state.answers.includes(city)
         ).length === 0
       ) {
         window.location.href = `/win/?amount=${
@@ -84,7 +84,7 @@ class TheGame extends React.Component {
         setTimeout(() => {
           this.state.answers.push(
             this.state.cities.filter(
-              (city) => city[0].toLowerCase() === last_letter
+              (city) => city[0].toLowerCase() === last_letter & !this.state.answers.includes(city)
             )[0]
           );
           new_answers = `<div class="w-full mb-2 float-left ml-4">
@@ -188,7 +188,7 @@ class TheGame extends React.Component {
             </div>
           </Then>
           <Else>
-            <If condition={this.state.answers % 2 === 0}>
+            <If condition={this.state.answers.length % 2 === 0}>
               <Then>
                 <Navigate
                   to={`/fail/?amount=${
