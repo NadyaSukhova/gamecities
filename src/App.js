@@ -16,13 +16,12 @@ function App() {
         element={<TheGame/>}
       />
       <Route
-        path={"/welcome"}
+        path={"/"}
         element={<WelcomePage/>}
       />
       <Route path="*" element={<NoPage />} />
       <Route path="/fail" search='?amount=amount&city=city&time=time' element={<FailPage />} />
       <Route path="/win" search='?amount=amount&city=city&time=time' element={<WinPage />} />
-      <Route path="/" element={<Navigate replace to="/welcome" /> }/>
     </Routes>
   </BrowserRouter>
   </div>
