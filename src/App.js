@@ -16,7 +16,7 @@ function App() {
         element={<TheGame/>}
       />
       <Route
-        path={"/"}
+        path={"/gamecities"}
         element={<WelcomePage/>}
       />
       <Route path="*" element={<NoPage />} />
