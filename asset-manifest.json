@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/gamecities/static/css/main.1685532e.css",
-    "main.js": "/gamecities/static/js/main.b3d3158f.js",
+    "main.js": "/gamecities/static/js/main.5de2221b.js",
     "static/js/787.76463c4e.chunk.js": "/gamecities/static/js/787.76463c4e.chunk.js",
     "index.html": "/gamecities/index.html",
     "main.1685532e.css.map": "/gamecities/static/css/main.1685532e.css.map",
-    "main.b3d3158f.js.map": "/gamecities/static/js/main.b3d3158f.js.map",
+    "main.5de2221b.js.map": "/gamecities/static/js/main.5de2221b.js.map",
     "787.76463c4e.chunk.js.map": "/gamecities/static/js/787.76463c4e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1685532e.css",
-    "static/js/main.b3d3158f.js"
+    "static/js/main.5de2221b.js"
   ]
 }
