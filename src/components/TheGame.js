@@ -50,11 +50,9 @@ class TheGame extends React.Component {
       last_word = this.state.answers.slice(-1);
       first_letter = last_word[0].slice(-1);
     }
-    console.log(first_letter)
     if (this.state.answers.length > 0 & "ьъы".includes(first_letter)) {
       first_letter = last_word[0][last_word[0].length - 2];
     }
-    console.log(first_letter)
     if (
       this.state.cities.includes(this.state.answer) &
       !this.state.answers.includes(this.state.answer) &
