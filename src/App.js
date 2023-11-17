@@ -1,24 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import TheGame from './components/TheGame';
+import WelcomePage from './components/WelcomePage';
+import NoPage from './components/NoPage';
+import WinPage from './components/WinPage';
+import FailPage from './components/FailPage';
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  return ( 
+  <div className='mt-4'>
+  <BrowserRouter>
+    <Routes>
+      <Route
+        path={"/game"}
+        element={<TheGame/>}
+      />
+      <Route
+        path={"/welcome"}
+        element={<WelcomePage/>}
+      />
+      <Route path="*" element={<NoPage />} />
+      <Route path="/fail" search='?amount=amount&city=city&time=time' element={<FailPage />} />
+      <Route path="/win" search='?amount=amount&city=city&time=time' element={<WinPage />} />
+      <Route path="/" element={<Navigate replace to="/welcome" /> }/>
+    </Routes>
+  </BrowserRouter>
+  </div>
   );
 }
 
