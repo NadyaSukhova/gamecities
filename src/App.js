@@ -22,7 +22,7 @@ function App() {
       <Route path="*" element={<NoPage />} />
       <Route path="/gamecities/fail" search='?amount=amount&city=city&time=time' element={<FailPage />} />
       <Route path="/gamecities/win" search='?amount=amount&city=city&time=time' element={<WinPage />} />
-      <Route path="/gamecities" element={<Navigate replace to="/welcome" /> }/>
+      <Route path="/gamecities" element={<Navigate replace to="/gamecities/welcome" /> }/>
     </Routes>
   </BrowserRouter>
   </div>
